@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.
+9/angular.min.js" type="text/javascript"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        table,
+        td,
+        tr {
+            padding: 1rem;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            padding: 11rem 0 0 0;
+        }
+    </style>
+
+</head>
+
+<body ng-app="" style="color: blue;">
+    <div class="form-container">
+        <h1>User Registration Form</h1>
+        <form name='myform'>
+            <table>
+                <tr>
+                    <td>
+                        Name<span style="color: red;">*</span>
+                    </td>
+                    <td>
+                        <input type='text' name="myName" ng-model="name" required pattern="[a-z,A-Z]{1,}">
+                        <span style="color: red;" ng_show="myform.myName.$error.required">Name is
+                            required</span>
+                        <span style="color: red;" ng_show="myform.myName.$error.pattern">Name is
+                            invalid</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        password<span style="color: red;">*</span>
+                    </td>
+                    <td>
+                        <input type='password' name="mypassword" ng_model="password" required
+                            pattern="(?=.\d)(?=.[a_z])(?=.*[A-Z]).{8,}">
+                        <span style="color: red;" ng_show="myform.mypassword.$error.required">Password is
+                            required</span>
+                        <span style="color: red;" ng_show="myform.mypassword.$error.pattern">Password is
+                            invalid</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Age<span style="color: red;">*</span>
+                    </td>
+                    <td>
+                        <input type='number' name="myAge" ng-model="Age" required min="18" max="30">
+                        <span style="color: red;" ng_show="myform.myAge.$error.required">Age is
+                            required</span>
+                        <span style="color: red;" ng_show="myform.myAge.$error.min">Age is invalid</span>
+                        <span style="color: red;" ng_show="myform.myAge.$error.max">Age is invalid</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Mobile Number<span style="color: red;">*</span>
+                    </td>
+                    <td>
+                        <input type='tel' name="mynumber" ng-model="Number" required pattern="[0-9]{10}">
+                        <span style="color: red;" ng_show="myform.mynumber.$error.required">Mobile number is
+                            required</span>
+                        <span style="color: red;" ng_show="myform.mynumber.$error.pattern">Mobile number is
+                            invalid</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Email<span style="color: red;">*</span>
+                    </td>
+                    <td>
+                        <input type='email' name="myemail" ng-model="email" required>
+                        <span style="color: red;" ng-show="myform.myemail.$error.required">Email is
+                            required</span>
+                        <span style="color: red;" ng-show="myform.myemail.$error.email">Email is
+                            invalid</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Gender<span style="color: red;">*</span>
+                    </td>
+                    <td>
+                        <input type='radio' name="mygender" ng-model="Gender" value="Male" required>Male
+                        <input type='radio' name="mygender" ng-model="Gender" value="Female" required>Female
+                        <span style="color: red;" ng-show="myform.mygender.$error.required">Gender is
+                            required</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        State<span style="color: red;">*</span>
+                    </td>
+                    <td>
+                        <select name="mystate" ng-model="State" required>
+                            <option value="Tamilnadu">Tamilnadu</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Karnataka">Karnataka</option>
+                        </select>
+                        <span style="color: red;" ng-show="myform.mystate.$error.required">State is required</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <Button ng-disabled="myform.$invalid">submit</Button>
+                    </td>
+                </tr>
+            </table>
+    </div>
+</body>
+
+</html>
